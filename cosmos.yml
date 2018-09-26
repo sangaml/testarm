@@ -16,4 +16,4 @@
         # location seems to be not optional
         location: '{{ location }}'
         template_link: '{{ templateLink }}'
-parameters_link: '{{ paramsLink }}'
+        parameters_link: '{{ paramsLink }}'
