@@ -149,3 +149,13 @@ if ($install_eslint) {
 
 
 write-host "Done !"
+
+$acctKey = ConvertTo-SecureString -String "3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\webfiles09", $acctKey
+New-PSDrive -Name Z -PSProvider FileSystem -Root "\\webfiles09.file.core.windows.net\web" -Credential $credential -Persist
+
+New-Item -ItemType directory -Path C:\Users\administrator1\Desktop\test
+Copy-Item "Z:" -Destination "C:\Users\administrator1\Desktop\test" -Recurse
+cd C:\Users\administrator1\Desktop\test
+npm i
+node index
