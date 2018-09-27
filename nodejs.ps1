@@ -150,12 +150,15 @@ if ($install_eslint) {
 
 write-host "Done !"
 
-$acctKey = ConvertTo-SecureString -String "3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==" -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\webfiles09", $acctKey
-New-PSDrive -Name Z -PSProvider FileSystem -Root "\\webfiles09.file.core.windows.net\web" -Credential $credential -Persist
+#$acctKey = ConvertTo-SecureString -String "3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==" -AsPlainText -Force
+#$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\webfiles09", $acctKey
+#New-PSDrive -Name Z -PSProvider FileSystem -Root "\\webfiles09.file.core.windows.net\web" -Credential $credential -Persist
+#net use Z: \\webfiles09.file.core.windows.net\web /u:AZURE\webfiles09 3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==
+#net use Z: \\webfiles09.file.core.windows.net\webtest /u:AZURE\webfiles09 3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==
+net use Z: \\webfiles09.file.core.windows.net\wtest /u:AZURE\webfiles09 3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==
 
-New-Item -ItemType directory -Path C:\Users\administrator1\Desktop\test
-Copy-Item "Z:" -Destination "C:\Users\administrator1\Desktop\test" -Recurse
-cd C:\Users\administrator1\Desktop\test
+New-Item -ItemType directory -Path C:\Users\webtest\Desktop\test
+Copy-Item Z:\test -Destination C:\Users\webtest\Desktop\test -Recurse
+cd C:\Users\webtest\Desktop\test\test
 npm i
 node index
