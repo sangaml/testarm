@@ -157,8 +157,8 @@ write-host "Done !"
 #net use Z: \\webfiles09.file.core.windows.net\webtest /u:AZURE\webfiles09 3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==
 net use Z: \\webfiles09.file.core.windows.net\wtest /u:AZURE\webfiles09 3eaDeDNH50phwz8ykd9jE4sKlweV2fRFtxh4raTE/H5r9oImpnZLC1LXgbG54prjwKqaQi4KyAzm/tkAbY88GQ==
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
-New-Item -ItemType directory -Path C:\Users\webtest\Desktop\test
-Copy-Item Z:\test -Destination C:\Users\webtest\Desktop\test -Recurse
-cd C:\Users\webtest\Desktop\test\test
+New-Item -ItemType directory -Path D:\test
+Copy-Item Z:\test -Destination D:\test -Recurse
+cd D:\test\test
 npm i
 node index
